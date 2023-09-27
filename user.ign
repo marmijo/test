@@ -1,0 +1,64 @@
+{
+  "ignition": {
+    "version": "3.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdSo+gT1/3Gfkef1aCOt0c+fXvD6Yb28eGczAGIHOlOphCmnnbhuPpB9IFZW/fWCVRugM2LJ3yFARqbTsmoVmVvbzVBnLlzI7sQxE6qtuPiyf3m5JB0Zb/6ASFRdyFHPqaUFZJHQC3bQVsWP6FOsgjbXla25nRM+fGdWtydkJakGHHRtwVJ27qvxZwbFy7VBOnJ9nw4QeMv+if8+Y6dFtQw7WNRvGIA56YIPNkj/m0B1PkBSZP0lSWhFhmiFmAz85wlEWmxnP7dzA/2Gd+zfbwCD8Wvopt6fmDtOFuFMgLpNxgiDn9qcyPkMReVIYj1UQqigW5E3mFIM/qMOi5QhhGZiWypvXsLs8GrOd2goJHfZgLMi9cYNwG7ntQwPmsxiGH5A+FuYiyWq8yCjdEN+5DT+Esrz5nziT3xTfaCDWRbVAA7ZI4ACawJBIIkw6/QKm44zDxgYs0cs6sWDBI9F6OaWkOV3PalJ9cl67KFy9wwmhaB2uzx/+c6PU6PR9cztU= marmijo@artemis"
+        ]
+      },
+      {
+        "name": "sleeper"
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "group": {
+          "name": "sleeper"
+        },
+        "path": "/home/sleeper/.config/systemd/user/default.target.wants",
+        "user": {
+          "name": "sleeper"
+        },
+        "mode": 484
+      }
+    ],
+    "files": [
+      {
+        "path": "/var/lib/systemd/linger/sleeper",
+        "mode": 420
+      },
+      {
+        "group": {
+          "name": "sleeper"
+        },
+        "path": "/home/sleeper/.config/systemd/user/linger-example.service",
+        "user": {
+          "name": "sleeper"
+        },
+        "contents": {
+          "source": "data:,%5BUnit%5D%0ADescription%3DA%20systemd%20user%20unit%20demo%0AAfter%3Dnetwork-online.target%0AWants%3Dnetwork-online.target%0A%5BService%5D%0AExecStart%3D%2Fusr%2Fbin%2Fsleep%20infinity%0A"
+        },
+        "mode": 493
+      }
+    ],
+    "links": [
+      {
+        "group": {
+          "name": "sleeper"
+        },
+        "path": "/home/sleeper/.config/systemd/user/default.target.wants/linger-example.service",
+        "user": {
+          "name": "sleeper"
+        },
+        "hard": false,
+        "target": "/home/sleeper/.config/systemd/user/linger-example.service"
+      }
+    ]
+  }
+}
